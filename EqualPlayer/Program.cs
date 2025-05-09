@@ -15,8 +15,11 @@ namespace EqualPlayer
             setOfPlayers.Add(new Player(Player.PlayerClass.Tank, "Ana"));
 
             foreach (Player i in setOfPlayers)
-                Console.Write(i + "is a " +i.PClass);
-            Console.WriteLine();
+            {
+                Console . WriteLine ($"{i.Name} is a {i.PClass}" );
+        
+            }
+
         }
         
         
