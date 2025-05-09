@@ -7,6 +7,37 @@ namespace EqualPlayer
 {
     public class Player
     {
-        
+        public enum PlayerClass
+        {
+            Tank , Fighter , Slayer , Mage,
+            Controller , Marksmen
+        }
+        public PlayerClass PClass { get ; }
+        public string Name { get ; }
+
+        public Player( PlayerClass pClass , string name)
+        {
+            PClass = pClass ;
+            Name = name;
+        }
+
+        public override int GetHashCode()
+        {
+            return PClass.GetHashCode() ^ Name.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Player otherPlayer) 
+            {
+                return PClass == otherPlayer.PClass && Name == otherPlayer.Name;
+            }
+            return false;
+        }
+
+        public static implicit operator Player(HashSet<Player> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
